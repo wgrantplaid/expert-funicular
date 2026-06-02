@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Projects</h2>
+                <button id="newProjectBtn" class="btn btn-primary">+ New Project</button>
+            </div>
+            <div id="projectsList" class="projects-list"></div>
+        </aside>
+
+        <!-- Main Calendar Area -->
+        <main class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevBtn" class="btn btn-nav">← Prev</button>
+                <h1 id="monthYear"></h1>
+                <button id="todayBtn" class="btn btn-nav">Today</button>
+                <button id="nextBtn" class="btn btn-nav">Next →</button>
+            </div>
+            <div id="calendar" class="calendar"></div>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">New Project</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="projectName">Project Name *</label>
+                    <input type="text" id="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDesc">Description</label>
+                    <textarea id="projectDesc"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectStart">Start Date *</label>
+                        <input type="date" id="projectStart" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectEnd">End Date *</label>
+                        <input type="date" id="projectEnd" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectStatus">Status</label>
+                        <select id="projectStatus">
+                            <option value="on-track">On Track</option>
+                            <option value="at-risk">At Risk</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectColor">Color</label>
+                        <input type="color" id="projectColor" value="#3498db">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Day Detail Modal -->
+    <div id="dayModal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2 id="dayModalTitle"></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="dayProjectsList" class="day-projects-list"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
